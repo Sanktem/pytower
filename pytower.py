@@ -122,69 +122,82 @@ def create():
             pause()        
         elif null_choice == 0:
             print(' Cool moving on to picking your major and minor stats')
-            pause()
-            clear()
-            print('\n For your Major stat you will start with 2 extra bonus points and a 66% chance that you will level up in that stat. For your minor stat you will start with one extra point and a 40% to earn a point every level. For all other stats you will have a 15% to gain a point in any of the remaining skills. \n Note: If you have a null stat then you will have a 100% chance to gain a point in your major stat. \n \n')
-            print_stats()
-            while True:
-                try: 
-                    major = int(input('What do you want your major stat to be?: ')
-                    if stat_choice == 1: #Health
-                        if_null('Health')
-                        print('Nope you can not null out health yet')
-                        sleep(1)
-                    elif stat_choice == 2: #Mana
-                        max_mana = 0
-                        curr_mana = 0
-                        null = 'Mana'
-                        print(' It is done your Mana will be 0')
-                        break
-                    elif stat_choice == 3: #Attack
-                        attack = 0
-                        null = 'Attack'
-                        print(' It is done your Strength will be 0')
-                        break
-                    elif stat_choice == 4: #Speed
-                        speed = 0
-                        null = 'Speed'
-                        print(' It is done your Aglity will be 0')
-                        break
-                    elif stat_choice == 5: #Intelligance
-                        intel = 0
-                        null = 'Intelligance'
-                        print(' It is done your Intelligance will be 0')
-                        break
-                    elif stat_choice == 6: #Wisdom
-                        wisdom = 0
-                        null = 'Wisdom'
-                        print(' It is done your Wisdom will be 0')
-                        break
-                    elif stat_choice == 7: #Critical Chance
-                        crit_chance = 0
-                        null = 'Critical Chance'
-                        print(' It is done your Critical Chance will be 0')
-                        break
-                    elif stat_choice == 8: #Critical Strike
-                        crit_strike = 0
-                        null = 'Critical Strike'
-                        print(' It is done your Critical Strike will be 0')
-                        break
-                    elif stat_choice == 9: #Luck
-                        luck = 0
-                        null = 'Luck'
-                        print(' It is done your Luck will be 0')
-                        break
-                    else:
-                        print(' That is not a valid option')
-                        sleep(1)
-                except ValueError:
-                    print(' Only a number will do')
         else:
             print(' That is not a valid option')
             sleep(1)
     except ValueError:
         print(' Only a number will do')
         sleep(1)
+    
+    pause() # This will allow the player to select the Major stat
+    clear()
+    print('\n For your Major stat you will start with 2 extra bonus points and a 66% chance that you will level up in that stat. For your minor stat you will start with one extra point and a 40% to earn a point every level. For all other stats you will have a 15% to gain a point in any of the remaining skills. \n Note: If you have a null stat then you will have a 100% chance to gain a point in your major stat. \n \n')
+    print_stats()
+    while True:
+        try: 
+            major_choice = int(input('What do you want your major stat to be?: ')
+            if major_choice == 1: #Health
+                if_null('Health')
+                max_health = 12
+                curr_health = max_health
+                major = 'Health'
+                print('Your total health has been set to:', max_health)
+                break
+            elif major_choice == 2: #Mana
+                if_null('Mana')
+                max_mana = 12
+                curr_mana = max_mana
+                major = 'Mana'
+                print('Your total mana has been set to:', max_mana)
+                break
+            elif major_choice == 3: #Attack
+                if_null('Attack')
+                attack = 5
+                major = 'Attack'
+                print('Your strength has been set to:', attack)
+                break
+            elif major_choice == 4: #Speed
+                if_null('Speed')
+                speed = 5
+                major = 'Speed'
+                print('Your aglity has been set to:', speed)
+                break
+            elif major_choice == 5: #Intelligance
+                if_null('Intelligance')
+                intel = 5
+                major = 'Intelligance'
+                print('Your intelligance has been set to:', intel)
+                break
+            elif major_choice == 6: #Wisdom
+                if_null('Wisdom')
+                wisdom = 5
+                major = 'Wisdom'
+                print('Your wisdom has been set to:', wisdom)
+                break
+            elif major_choice == 7: #Critical Chance
+                if_null('Critical Chance')
+                crit_chance = 3
+                major = 'Critical Chance'
+                print('Your criical chance has been set to:', crit_chance)
+                break
+            elif major_choice == 8: #Critical Strike
+                if_null('Critical Strike')
+                crit_strike = 3
+                major = 'Critical Strike'
+                print('Your critical strike has been set to:', crit_strike)
+                break
+            elif major_choice == 9: #Luck
+                if_null('Luck')
+                luck = 3
+                major = 'Luck'
+                print('Your luck has been set to:', luck)
+                break
+            else:
+                print(' That is not a valid option')
+                sleep(1)
+        except ValueError:
+            print(' Only a number will do')
+    pause()
         
     
 #Main menu
